@@ -27,6 +27,17 @@
                 <span @click="removeTask(index)"><i class="fa-solid fa-x"></i></span>
             </li>
         </ul>
+
+        <div id="add-task" class="py-4 ">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Insert new task</span>
+                <input v-model="newTask" type="text" class="form-control" placeholder="Testo del task"
+                    aria-label="Task Text" aria-describedby="add-task">
+                <button class="btn btn-outline-secondary" type="button" id="add-task" @click="addTask()">
+                    Add Task
+                </button>
+            </div>
+        </div>
     </div>
 
 
