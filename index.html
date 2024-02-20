@@ -23,7 +23,8 @@
 
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between" v-for="(task, index) in tasks">
-                <span :class="task.done == true ? 'text-decoration-line-through' : '' ">{{task.text}}</span>
+                <span @click="invert(task)"
+                    :class="task.done == true ? 'text-decoration-line-through' : '' ">{{task.text}}</span>
                 <span @click="removeTask(index)"><i class="fa-solid fa-x"></i></span>
             </li>
         </ul>
@@ -32,15 +33,13 @@
             <div class="input-group mb-3">
                 <span class="input-group-text">Insert new task</span>
                 <input v-model="newTask" type="text" class="form-control" placeholder="Testo del task"
-                    aria-label="Task Text" aria-describedby="add-task">
-                <button class="btn btn-outline-secondary" type="button" id="add-task" @click="addTask()">
+                    aria-label="Task Text" aria-describedby="add-task" @keyup.enter="addTask()">
+                <button class=" btn btn-outline-secondary" type="button" id="add-task" @click="addTask()">
                     Add Task
                 </button>
             </div>
         </div>
     </div>
-
-
 
     <script src="./js/script.js"></script>
 </body>
