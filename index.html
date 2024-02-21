@@ -24,16 +24,19 @@
 
         <h1 class="my-5 text-center ">Vue Todo List</h1>
 
-        <ul class="list-group">
+        <ul class="list-group" v-if="tasks.length > 0">
             <li class="list-group-item d-flex justify-content-between" v-for="(task, index) in tasks">
                 <span @click="invert(task)"
                     :class="task.done == true ? 'text-decoration-line-through' : '' ">{{task.text}}</span>
-                <span @click="removeTask(index)"><i class="fa-solid fa-x"></i></span>
+                <span @click="removeTask(index)"><i class="fa-solid fa-square-xmark text-danger   "></i></span>
             </li>
         </ul>
+        <div v-else class="text-center text-bg-success">
+            <p>Well done! You have completed all tasks!</p>
+        </div>
 
-        <div id="add-task" class="py-4">
-            <div class="input-group mb-3 d-flex justify-content-center">
+        <div id=" add-task" class="py-4">
+            <div class="input-group mb-3 d-flex justify-content-center flex-nowrap ">
                 <span class="input-group-text border-black">Insert new task</span>
                 <input class="text-center py-2" v-model="newTask" type="text" class="form-control"
                     placeholder="Testo del task" aria-label="Task Text" aria-describedby="add-task"
